@@ -1,34 +1,26 @@
 .navbar-icon {
-    height: 40px; /* Tamaño del ícono en el navbar */
+    height: 40px; 
     width: auto;
-    margin-right: 10px; /* Espacio entre el icono y el texto */
+    margin-right: 10px;
 }
 h1,h3, .text-color {
     font-weight: 900;
     color: #20c997;
 }
-/* p {
-    font-size: 1.2rem;
-} */
+
 .btn-center {
     font-size: 1.2rem;
     padding: 10px 30px;
 }
-/* Espaciado en los íconos */
+
 .icon-text {
     margin-right: 20px;
 }
-/* Ajusta la altura mínima de la página para centrar el contenido */
-/* body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-} */
+
 body {
     margin: 0;
     padding: 0;
-    font-weight: 700; /* Cambiado a un valor válido */
-    /* min-height: 100vh; */
+    font-weight: 700; 
     display: flex;
     flex-direction: column;
     font-family: "Open Sans", sans-serif;
@@ -43,59 +35,48 @@ body {
     min-height: 100vh;
 }
 .background-inicio {
-    background: url('/img/Fondohome.png') no-repeat center center fixed; /* Cambia la URL a tu imagen */
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-
+    background: url('/img/Fondohome.png') no-repeat center center fixed; 
+    background-size: cover;
 }
 
-
-
-/* Hacer que la imagen tenga siempre la misma altura sin distorsionar */
 .card-img-top {
-    width: 100%; /* La imagen ocupará todo el ancho de la tarjeta */
-    height: 200px; /* Fija la altura de la imagen */
-    object-fit: cover; /* Mantiene la proporción de la imagen sin distorsionar */
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover;
 }
 
-/* Para pantallas más grandes, ajusta la altura */
 @media (min-width: 768px) {
     .card-img-top {
-        height: 250px; /* Aumenta la altura en pantallas más grandes */
+        height: 250px;
     }
 }
 
-/* Para pantallas más pequeñas, ajusta la altura */
 @media (max-width: 576px) {
     .card-img-top {
-        height: 150px; /* Reduce la altura en pantallas más pequeñas */
+        height: 150px;
     }
 }
 
-/* Asegurar que el contenido de la tarjeta esté alineado correctamente */
 .card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-/* .card-img-top {
-    height: 200px; /* Establece una altura fija */
 
-
-/*  */
 .img-cursoid {
     height: 350px;
 }
 .main-content {
     flex: 1;
 }
-/* Línea debajo del navbar */
+
 .navbar-underline {
     height: 5px;
-    background-color: #20c997; /* Azul verdoso */
+    background-color: #20c997; 
 }
-/* Footer del mismo color que la línea */
+
 footer {
-    background-color: #20c997; /* Azul verdoso */
+    background-color: #20c997;
     color: white;
     padding: 10px 0;
 }
