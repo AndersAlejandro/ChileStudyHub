@@ -1,0 +1,59 @@
+<nav class="navbar" id="navbar-color">
+    <div class="container-fluid navbar-expand-lg">
+        <div class="d-flex align-items-center">
+            <img src="/img/icononavbar.png" alt="icononavbar" class="navbar-icon">
+            <a class="navbar-brand text-light" href="#">ChileStudyHub</a>
+        </div>
+        <div class="ms-auto d-flex flex-column text-end ">
+            <h5 class="text-light">Bienvenido, {{decode.email}}</h5>
+            <div class="d-flex align-items-center">
+                <p class="mb-0 me-2">Rol: {{decode.tipo_usuario}}</p>
+                <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Opciones
+                    </button>
+                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        {{#eq decode.tipo_usuario 'admin'}}
+                        <li><a class="dropdown-item" href="/crearCurso">Crear curso</a></li>
+                        {{/eq}}
+                        <li><a class="dropdown-item" href="/cursos">Ver cursos</a></li>
+                        {{#eq decode.tipo_usuario 'estudiante'}}
+                        <li><a class="dropdown-item" href="/inscripciones">Ver cursos inscritos</a></li>
+                        <li><a class="dropdown-item" href="/">Salir</a></li>
+                        {{/eq}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<body>
+    <div class="container main-content d-flex flex-column align-items-center justify-content-center text-center">
+        <div class="curso-detalle w-50 mb-4">
+            <input type="hidden" id="cursoId" value="{{cursoID.id}}">
+            <img src="/{{cursoID.portada}}" alt="Portada del Curso" class="img-fluid img-cursoid mb-4">
+            <h2>{{cursoID.nombre}}</h2>
+            <p>{{cursoID.descripcion}}</p>
+            <p>Fecha de inicio: {{cursoID.fecha_inicio}}</p>
+            <p>Fecha de término: {{cursoID.fecha_termino}}</p>
+            <div class="d-flex justify-content-center">
+            {{#eq decode.tipo_usuario 'estudiante'}}
+            <a href="/inscribirse/{{../cursoID.id}}" class="btn btn-warning text-light">Inscribirse</a>
+            {{/eq}}
+            {{#eq decode.tipo_usuario 'admin'}}
+            <a href="/editarCurso/{{../cursoID.id}}" class="btn btn-warning mx-2">Editar curso</a>
+            <button id="eliminarCurso" class="btn btn-danger mx-2">Eliminar Curso</button>
+            {{/eq}}
+            </div>
+        </div>
+    </div>
+    
+    <footer class="text-center mt-4">
+        <p class="text-light">&copy; 2024 ChileStudyHub - Todos los derechos reservados</p>
+    </footer>
+</body>
+
+
+<script src="/js/cursoID.js"></script>

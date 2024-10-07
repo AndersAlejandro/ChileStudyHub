@@ -1,0 +1,22 @@
+{
+  "name": "proyecto-pf1",
+  "version": "1.0.0",
+  "description": "Proyecto Portafolio",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon --env-file=.env index.js"
+
+  },
+  "author": "Anders Mamani",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-fileupload": "^1.5.1",
+    "express-handlebars": "^8.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.12.0"
+  }
+}
