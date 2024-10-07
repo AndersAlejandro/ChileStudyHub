@@ -16,6 +16,7 @@ import { ifCond } from './helpers/ifcond.js';
 // Instancia servidor
 const app = express()
 app.use(morgan("dev"))
+const port = process.env.SERVER_PORT;
 // middleware para subir archivos
 app.use(fileUpload())
 // middleware para aceptar json
@@ -43,7 +44,7 @@ app.use("/", views)
 app.use("/auth", auth)
 app.use("/cursos", cursos)
 
-app.listen(3000, () => {
-    console.log("App en el puerto 3000")
+app.listen(port, () => {
+    console.log("App en el puerto 80")
 })
 
