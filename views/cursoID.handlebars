@@ -42,23 +42,23 @@
             {{#eq decode.tipo_usuario 'estudiante'}}
             <a href="#" data-bs-toggle="modal" data-bs-target="#inscriptionModal" class="btn btn-warning text-light">Inscribirse</a>
             {{/eq}}
-
            <div class="modal fade" id="inscriptionModal" tabindex="-1" aria-labelledby="inscriptionModalLabel" aria-hidden="true">
              <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
+                <h5 class="modal-title text-center" id="inscriptionModalLabel">Confirmar Inscripción</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
              </div>
            <div class="modal-body">
-               Te has inscrito con éxito en el curso.
+               ¿Estás seguro de que deseas inscribirte en este curso?
            </div>
-          <div class="modal-footer">
-           <a href="/inscripciones" class="btn btn-warning">Ver Cursos Inscritos</a>
-           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          </div>
+         <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <a id="confirmInscription" href="#" class="btn btn-warning text-light">Confirmar Inscripción</a>
+         </div>
+        </div>
        </div>
-      </div>
-     </div>
+    </div>
 
             {{#eq decode.tipo_usuario 'admin'}}
             <a href="/editarCurso/{{../cursoID.id}}" class="btn btn-warning mx-2">Editar curso</a>

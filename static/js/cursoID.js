@@ -28,3 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+document.getElementById('confirmInscription').onclick = function() {
+    const id = document.getElementById("cursoId").value;
+    window.location.href = `/inscribirse/${id}`;
+  };
