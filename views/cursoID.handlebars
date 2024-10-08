@@ -40,8 +40,26 @@
             <p>Fecha de término: {{cursoID.fecha_termino}}</p>
             <div class="d-flex justify-content-center">
             {{#eq decode.tipo_usuario 'estudiante'}}
-            <a href="/inscribirse/{{../cursoID.id}}" class="btn btn-warning text-light">Inscribirse</a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#inscriptionModal" class="btn btn-warning text-light">Inscribirse</a>
             {{/eq}}
+
+           <div class="modal fade" id="inscriptionModal" tabindex="-1" aria-labelledby="inscriptionModalLabel" aria-hidden="true">
+             <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+           <div class="modal-body">
+               Te has inscrito con éxito en el curso.
+           </div>
+          <div class="modal-footer">
+           <a href="/inscripciones" class="btn btn-warning">Ver Cursos Inscritos</a>
+           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+       </div>
+      </div>
+     </div>
+
             {{#eq decode.tipo_usuario 'admin'}}
             <a href="/editarCurso/{{../cursoID.id}}" class="btn btn-warning mx-2">Editar curso</a>
             <button id="eliminarCurso" class="btn btn-danger mx-2">Eliminar Curso</button>
