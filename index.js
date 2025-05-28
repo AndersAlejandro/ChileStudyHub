@@ -8,6 +8,7 @@ import morgan from 'morgan'
 import { router as views } from './routes/views.js'
 import { router as auth } from './routes/auth.js'
 import { router as cursos } from './routes/cursos.js'
+import { router as inscripciones } from './routes/inscripciones.js';
 // helpers
 import { eqHelper } from './helpers/eq.js';
 import { ifCond } from './helpers/ifcond.js';
@@ -43,8 +44,8 @@ app.set('view engine', 'handlebars');
 app.use("/", views)
 app.use("/auth", auth)
 app.use("/cursos", cursos)
-
-app.listen(port, () => {
+app.use("/inscripcion", inscripciones)
+app.listen(port,'0.0.0.0', () => {
     console.log("App en el puerto 80")
 })
 

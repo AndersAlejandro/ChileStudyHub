@@ -1,3 +1,5 @@
+<body>
+
 <nav class="navbar" id="navbar-color">
     <div class="container-fluid navbar-expand-lg">
         <div class="d-flex align-items-center">
@@ -5,7 +7,7 @@
             <a class="navbar-brand text-light" href="#">ChileStudyHub</a>
         </div>
         <div class="ms-auto d-flex flex-column text-end ">
-            <h5 class="text-light">Bienvenido, {{decode.email}}</h5>
+            <h5 class="text-light">Bienvenido: {{decode.nombre}}</h5>
             <div class="d-flex align-items-center">
                 <p class="mb-0 me-2">Rol: {{decode.tipo_usuario}}</p>
                 <div class="dropdown">
@@ -16,6 +18,7 @@
                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         {{#eq decode.tipo_usuario 'admin'}}
                         <li><a class="dropdown-item" href="/crearCurso">Crear curso</a></li>
+                        <li><a class="dropdown-item" href="/">Salir</a></li>
                         {{/eq}}
                         <li><a class="dropdown-item" href="/cursos">Ver cursos</a></li>
                         {{#eq decode.tipo_usuario 'estudiante'}}
@@ -29,36 +32,15 @@
     </div>
 </nav>
 
-<body>
     <div class="container main-content d-flex flex-column align-items-center justify-content-center text-center">
-        <div class="curso-detalle w-50 mb-4">
-            <input type="hidden" id="cursoId" value="{{cursoID.id}}">
-            <img src="/{{cursoID.portada}}" alt="Portada del Curso" class="img-fluid img-cursoid mb-4">
-            <h2>{{cursoID.nombre}}</h2>
-            <p>{{cursoID.descripcion}}</p>
-            <p>Fecha de inicio: {{cursoID.fecha_inicio}}</p>
-            <p>Fecha de término: {{cursoID.fecha_termino}}</p>
-            <div class="d-flex justify-content-center">
-            {{#eq decode.tipo_usuario 'estudiante'}}
-            <a href="#" data-bs-toggle="modal" data-bs-target="#inscriptionModal" class="btn btn-warning text-light">Inscribirse</a>
-            {{/eq}}
-           <div class="modal fade" id="inscriptionModal" tabindex="-1" aria-labelledby="inscriptionModalLabel" aria-hidden="true">
-             <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title text-center" id="inscriptionModalLabel">Confirmar Inscripción</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-             </div>
-           <div class="modal-body">
-               ¿Estás seguro de que deseas inscribirte en este curso?
-           </div>
-         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <a id="confirmInscription" href="#" class="btn btn-warning text-light">Confirmar Inscripción</a>
-         </div>
-        </div>
-       </div>
-    </div>
+  <div class="curso-detalle w-50 mb-4">
+    <input type="hidden" id="cursoId" value="{{cursoID.id}}">
+    <img src="/{{cursoID.portada}}" alt="Portada del Curso" class="img-cursoid mb-4">
+    <h2>{{cursoID.nombre}}</h2>
+    <p>{{cursoID.descripcion}}</p>
+    <p>Fecha de inicio: <span id="fechaInicio">{{cursoID.fecha_inicio}}</span></p>
+    <p>Fecha de término: <span id="fechaTermino">{{cursoID.fecha_termino}}</span></p>
+    <div class="d-flex justify-content-center">
 
             {{#eq decode.tipo_usuario 'admin'}}
             <a href="/editarCurso/{{../cursoID.id}}" class="btn btn-warning mx-2">Editar curso</a>
@@ -67,9 +49,55 @@
             </div>
         </div>
     </div>
+    <div class="d-flex justify-content-center">
+      {{#eq decode.tipo_usuario 'estudiante'}}
+      <a href="#" data-bs-toggle="modal" data-bs-target="#inscriptionModal" class="btn btn-warning text-light">Inscribirse</a>
+      {{/eq}}
+    
+      <!-- Modal Confirmación -->
+      <div class="modal fade" id="inscriptionModal" tabindex="-1" aria-labelledby="inscriptionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="inscriptionModalLabel">Confirmar Inscripción</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ¿Estás seguro de que deseas inscribirte en este curso?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <a id="confirmInscription" href="#" class="btn btn-warning text-light">Confirmar Inscripción</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Éxito -->
+      <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="successModalLabel">Inscripción exitosa</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+              ¡Te has inscrito correctamente en el curso!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning text-light" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
     
     <footer class="text-center mt-4">
-        <p class="text-light">&copy; 2024 ChileStudyHub - Todos los derechos reservados</p>
+        <p class="mb-1">&copy; 2024 ChileStudyHub - Todos los derechos reservados</p>
     </footer>
 </body>
 

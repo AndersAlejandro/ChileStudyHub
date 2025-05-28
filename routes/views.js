@@ -96,24 +96,6 @@ router.get("/curso/:id", Authorization, async (req, res) => {
     }
 });
 
-router.get("/inscribirse/:id", Authorization, async (req, res) => {
-    const decode = req.decoded;
-    const cursoId = req.params.id;
-    const userId = decode.id_usuario;
-
-    try {
-        const inscripcionUser = await inscripcion(userId, cursoId);
-        console.log(`ola${cursoId}${userId}`)
-        res.redirect(`/curso/${cursoId}`);
-    } catch (error) {
-        console.error(error);
-        res.status(500).render("error", {
-            message: 'Error al inscribir al usuario',
-            error
-        });
-    }
-});
-
 router.get("/inscripciones", Authorization, async (req, res) => {
     const decode = req.decoded;
     const userId = decode.id_usuario;
