@@ -82,13 +82,29 @@ router.get("/curso/:id", Authorization, async (req, res) => {
     const cursoId = req.params.id;
     const userId = decode.id_usuario;
 
-    console.log('User ID:', userId);
-    console.log('Curso ID:', cursoId);
     try {
         const curso = await getCursoID(cursoId);
-        const cursoOcultar = await estaInscrito(userId,cursoId)     
+        const cursoData = curso.rows[0];
+
+        
+        const opcionesFecha = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            timeZone: 'America/Santiago'
+        };
+
+        const fechaInicioFormateada = new Date(cursoData.fecha_inicio).toLocaleDateString('es-CL', opcionesFecha);
+        const fechaTerminoFormateada = new Date(cursoData.fecha_termino).toLocaleDateString('es-CL', opcionesFecha);
+
+        
+        cursoData.fecha_inicio_formateada = fechaInicioFormateada;
+        cursoData.fecha_termino_formateada = fechaTerminoFormateada;
+
+        const cursoOcultar = await estaInscrito(userId, cursoId);
+
         res.render("cursoID", {
-            cursoID: curso.rows[0],
+            cursoID: cursoData,
             estaInscrito: cursoOcultar,
             decode: decode
         });
@@ -101,13 +117,13 @@ router.get("/curso/:id", Authorization, async (req, res) => {
     }
 });
 
+
 router.get("/inscripciones", Authorization, async (req, res) => {
     const decode = req.decoded;
     const userId = decode.id_usuario;
 
     try {
         const vercursosInscritos = await cursosInscritos(userId)
-        console.log(vercursosInscritos.rows)
         res.render("inscripciones", {
             cursosInscritos: vercursosInscritos.rows,
             decode: decode

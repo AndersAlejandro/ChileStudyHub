@@ -30,19 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
-  const opcionesFecha = { year: 'numeric', month: 'long', day: 'numeric' };
-  const fechaInicioElem = document.getElementById("fechaInicio");
-  const fechaTerminoElem = document.getElementById("fechaTermino");
-
-  if (fechaInicioElem && fechaTerminoElem) {
-    const fechaInicio = new Date(fechaInicioElem.textContent);
-    const fechaTermino = new Date(fechaTerminoElem.textContent);
-
-    fechaInicioElem.textContent = fechaInicio.toLocaleDateString('es-CL', opcionesFecha);
-    fechaTerminoElem.textContent = fechaTermino.toLocaleDateString('es-CL', opcionesFecha);
-  }
-
   
   const confirmBtn = document.getElementById('confirmInscription');
   if (confirmBtn) {

@@ -38,8 +38,8 @@
     <img src="/{{cursoID.portada}}" alt="Portada del Curso" class="img-cursoid mb-4">
     <h2>{{cursoID.nombre}}</h2>
     <p>{{cursoID.descripcion}}</p>
-    <p>Fecha de inicio: <span id="fechaInicio">{{cursoID.fecha_inicio}}</span></p>
-    <p>Fecha de término: <span id="fechaTermino">{{cursoID.fecha_termino}}</span></p>
+    <p>Fecha de inicio: <span id="fechaInicio">{{cursoID.fecha_inicio_formateada}}</span></p>
+    <p>Fecha de término: <span id="fechaTermino">{{cursoID.fecha_termino_formateada}}</span></p>
        <div class="d-flex justify-content-center">
             {{#eq decode.tipo_usuario 'admin'}}
             <a href="/editarCurso/{{../cursoID.id}}" class="btn btn-warning mx-2">Editar curso</a>
