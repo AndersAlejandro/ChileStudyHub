@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { Authorization } from "../middlewares/Authorization.js";
 
-import { getCursos, getAreaCurso, getCursoID, getFiltroCurso, inscripcion, cursosInscritos } from "../models/cursos.js";
+import { getCursos, getAreaCurso, getCursoID, getFiltroCurso, inscripcion, cursosInscritos, estaInscrito } from "../models/cursos.js";
 
 const router = Router()
 
@@ -79,12 +79,17 @@ router.get("/editarCurso/:id", Authorization, async (req,res) => {
 
 router.get("/curso/:id", Authorization, async (req, res) => {
     const decode = req.decoded;
-    const id = req.params.id;
+    const cursoId = req.params.id;
+    const userId = decode.id_usuario;
 
+    console.log('User ID:', userId);
+    console.log('Curso ID:', cursoId);
     try {
-        const curso = await getCursoID(id);       
+        const curso = await getCursoID(cursoId);
+        const cursoOcultar = await estaInscrito(userId,cursoId)     
         res.render("cursoID", {
             cursoID: curso.rows[0],
+            estaInscrito: cursoOcultar,
             decode: decode
         });
     } catch (error) {

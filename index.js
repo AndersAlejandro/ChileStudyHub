@@ -12,6 +12,7 @@ import { router as inscripciones } from './routes/inscripciones.js';
 // helpers
 import { eqHelper } from './helpers/eq.js';
 import { ifCond } from './helpers/ifcond.js';
+import { mostrarBoton } from './helpers/mostrarBoton.js';
 
 
 // Instancia servidor
@@ -36,7 +37,8 @@ app.engine('handlebars', engine({
     extname: 'handlebars',
     helpers: {
         eq: eqHelper,
-        ifCond: ifCond
+        ifCond: ifCond,
+        mostrarBoton: mostrarBoton
     }
 }));
 app.set('view engine', 'handlebars');

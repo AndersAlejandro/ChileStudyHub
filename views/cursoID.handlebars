@@ -40,8 +40,7 @@
     <p>{{cursoID.descripcion}}</p>
     <p>Fecha de inicio: <span id="fechaInicio">{{cursoID.fecha_inicio}}</span></p>
     <p>Fecha de término: <span id="fechaTermino">{{cursoID.fecha_termino}}</span></p>
-    <div class="d-flex justify-content-center">
-
+       <div class="d-flex justify-content-center">
             {{#eq decode.tipo_usuario 'admin'}}
             <a href="/editarCurso/{{../cursoID.id}}" class="btn btn-warning mx-2">Editar curso</a>
             <button id="eliminarCurso" class="btn btn-danger mx-2">Eliminar Curso</button>
@@ -50,9 +49,10 @@
         </div>
     </div>
     <div class="d-flex justify-content-center">
-      {{#eq decode.tipo_usuario 'estudiante'}}
-      <a href="#" data-bs-toggle="modal" data-bs-target="#inscriptionModal" class="btn btn-warning text-light">Inscribirse</a>
-      {{/eq}}
+
+      {{#mostrarBoton decode.tipo_usuario estaInscrito}}
+        <a href="#" data-bs-toggle="modal" data-bs-target="#inscriptionModal" class="btn btn-warning text-light">Inscribirse</a>
+      {{/mostrarBoton}}
     
       <!-- Modal Confirmación -->
       <div class="modal fade" id="inscriptionModal" tabindex="-1" aria-labelledby="inscriptionModalLabel" aria-hidden="true">
@@ -85,7 +85,7 @@
               ¡Te has inscrito correctamente en el curso!
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-warning text-light" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-warning text-light" onclick="location.reload()" data-bs-dismiss="modal">Cerrar</button>
             </div>
           </div>
         </div>

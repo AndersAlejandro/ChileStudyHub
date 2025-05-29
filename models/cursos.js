@@ -83,3 +83,11 @@ export const cursosInscritos = async (userId) => {
     const result = await db.query(text, values)
     return result
 }
+
+export const estaInscrito = async (userId, cursoId) => {
+    const text = `SELECT * FROM inscripciones WHERE id_usuario = $1 AND id_curso = $2 AND inscripcion = true`
+    const values = [userId,cursoId]
+    const result = await db.query(text,values);
+    console.log('inscripciones encontradas:', result.rows);
+    return result.rows.length > 0;
+}
