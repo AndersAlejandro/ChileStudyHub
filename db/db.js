@@ -6,7 +6,10 @@ const pool = new Pool({
     database: process.env.DATABASE,
     port: process.env.DB_PORT,
     user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD
+    password: process.env.DB_PASSWORD,
+    ssl: {
+      rejectUnauthorized: false,
+    }
 })
 
 export const query = async (text, params) => {
