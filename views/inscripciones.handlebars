@@ -1,57 +1,68 @@
 <body>
 
-<nav class="navbar" id="navbar-color">
+  <nav class="navbar" id="navbar-color">
     <div class="container-fluid navbar-expand-lg">
+      <div class="d-flex align-items-center">
+        <img src="/img/icononavbar.png" alt="icononavbar" class="navbar-icon" />
+        <a class="navbar-brand text-light" href="#">ChileStudyHub</a>
+      </div>
+      <div class="ms-auto d-flex flex-column text-end">
+        <h5 class="text-light">Bienvenido, {{decode.nombre}}</h5>
         <div class="d-flex align-items-center">
-            <img src="/img/icononavbar.png" alt="icononavbar" class="navbar-icon">
-            <a class="navbar-brand text-light" href="#">ChileStudyHub</a>
-        </div>
-        <div class="ms-auto d-flex flex-column text-end ">
-            <h5 class="text-light">Bienvenido, {{decode.nombre}}</h5>
-            <div class="d-flex align-items-center">
-                <p class="mb-0 me-2">Rol: {{decode.tipo_usuario}}</p>
-                <div class="dropdown">
-                    <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Opciones
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="/cursos">Ver cursos</a></li>
-                        {{#eq decode.tipo_usuario 'estudiante'}}
-                        <li><a class="dropdown-item" href="/inscripciones">Ver cursos inscritos</a></li>
-                        {{/eq}}
-                        <li><a class="dropdown-item" href="/">Salir</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-
-    <!-- Título de sección -->
-<div class="text-center py-5">
-  <h1 class="fw-bold text-success text-shadow">Mis Cursos Inscritos</h1>
-</div>
-
-<!-- Contenedor principal -->
-<div class="container main-content">
-  <div class="row justify-content-center">
-    {{#each cursosInscritos}}
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
-      <div class="card shadow h-100">
-        <img src="{{this.portada}}" class="card-img-top" alt="Portada del curso">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title fw-semibold text-dark">{{this.nombre}}</h5>
-          <a href="/curso/{{this.id}}" class="btn btn-warning mt-auto text-light fw-semibold">Ir</a>
+          <p class="mb-0 me-2">Rol: {{decode.tipo_usuario}}</p>
+          <div class="dropdown">
+            <button
+              class="btn btn-outline-light dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Opciones
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/cursos">Ver cursos</a></li>
+              {{#eq decode.tipo_usuario "estudiante"}}
+                <li><a class="dropdown-item" href="/inscripciones">Ver cursos
+                    inscritos</a></li>
+              {{/eq}}
+              <li><a class="dropdown-item" href="/">Salir</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-    {{/each}}
+  </nav>
+
+  <!-- Título de sección -->
+  <div class="text-center py-5">
+    <h1 class="fw-bold text-success text-shadow">Mis Cursos Inscritos</h1>
   </div>
-</div>
 
+  <!-- Contenedor principal -->
+  <div class="container main-content">
+    <div class="row justify-content-center">
+      {{#each cursosInscritos}}
+        <div
+          class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"
+        >
+          <div class="card shadow h-100">
+            <img
+              src="{{this.portada}}"
+              class="card-img-top"
+              alt="Portada del curso"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-semibold text-dark">{{this.nombre}}</h5>
+              <a
+                href="/curso/{{this.id}}"
+                class="btn btn-warning mt-auto text-light fw-semibold"
+              >Ir</a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
 
-    <footer class="text-center mt-4">
-        <p class="mb-1">&copy; 2024 ChileStudyHub - Todos los derechos reservados</p>
-    </footer>
 </body>

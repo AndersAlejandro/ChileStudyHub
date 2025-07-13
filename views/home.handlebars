@@ -1,40 +1,106 @@
-<body class="background-inicio">
-    
- <nav class="navbar" id="navbar-color">
-        <div class="container-fluid navbar-expand-lg">
-            <div class="d-flex align-items-center">
-                <img src="/img/icononavbar.png" alt="icononavbar" class="navbar-icon">
-                <a class="navbar-brand text-light" href="#">ChileStudyHub</a>
-            </div>
-            <div class="ms-auto navbar-botones">
-                <a class="btn btn-outline-light" href="/login">Ingresar</a>
-                <a class="btn btn-warning text-light" href="/register">Regístrate</a>
-            </div>
-        </div>
-    </nav>
-    
-    
-    <div class="container main-content d-flex flex-column align-items-center justify-content-center text-center">
-        
-        <h1>Haz crecer tus conocimientos</h1>     
-        <h3 class="mt-3 mb-4" style="max-width: 600px;">Desde cursos prácticos y rápidos, todo lo que necesitas para desarrollar las habilidades más buscadas en el mundo laboral.</h3>
-        <a href="/register" class="btn btn-warning btn-lg mb-4 btn-center text-light">Regístrate</a>
-        <div class="d-flex justify-content-center">
-            <div class="d-flex align-items-center icon-text text-light">
-                <i class="fa-solid fa-check-circle me-2 text-success"></i>
-                <span>100% gratis y en línea</span>
-            </div>
-            <div class="d-flex align-items-center icon-text text-light">
-                <i class="fa-solid fa-check-circle me-2 text-success"></i>
-                <span>Acceso ilimitado</span>
-            </div>
-            <div class="d-flex align-items-center icon-text text-light">
-                <i class="fa-solid fa-check-circle me-2 text-success"></i>
-                <span>Variedad de cursos</span>
-            </div>
-        </div>
+<body>
+  <nav class="navbar sticky-top" id="navbar-color">
+    <div class="container-fluid navbar-expand-lg">
+      <div class="d-flex align-items-center">
+        <img src="/img/icononavbar.png" alt="icononavbar" class="navbar-icon" />
+        <a class="navbar-brand text-light" href="#">ChileStudyHub</a>
+      </div>
+      <div class="ms-auto navbar-botones">
+        <a class="btn btn-outline-light" href="/login">Ingresar</a>
+        <a class="btn btn-warning text-light" href="/register">Regístrate</a>
+      </div>
     </div>
-    <footer class="text-center mt-4">
-        <p class="mb-1">&copy; 2024 ChileStudyHub - Todos los derechos reservados</p>
-    </footer>
+  </nav>
+
+  <!-- 👇 Aquí empieza el contenedor principal -->
+  <div class="main-content">
+    <section class="background-inicio">
+      <div
+        class="container d-flex flex-column align-items-center justify-content-center text-center"
+        data-aos="zoom-in"
+        data-aos-duration="700"
+      >
+        <h1>Haz crecer tus conocimientos</h1>
+        <h3 class="mt-3 mb-4" style="max-width: 600px;">Desde cursos prácticos y
+          rápidos, todo lo que necesitas para desarrollar las habilidades más
+          buscadas en el mundo laboral.</h3>
+        <a
+          href="/register"
+          class="btn btn-warning btn-lg mb-4 btn-center text-light"
+        >Regístrate</a>
+        <div class="d-flex justify-content-center">
+          <div class="d-flex align-items-center icon-text text-light">
+            <i class="fa-solid fa-check-circle me-2 text-success"></i>
+            <span>100% gratis y en línea</span>
+          </div>
+          <div class="d-flex align-items-center icon-text text-light">
+            <i class="fa-solid fa-check-circle me-2 text-success"></i>
+            <span>Acceso ilimitado</span>
+          </div>
+          <div class="d-flex align-items-center icon-text text-light">
+            <i class="fa-solid fa-check-circle me-2 text-success"></i>
+            <span>Variedad de cursos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ventajasLp py-5">
+      <div
+        class="container text-center"
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="700"
+      >
+        <h2 class="mb-4 mt-4">¿Por qué elegir
+          <span class="text-warning">ChileStudyHub</span>?</h2>
+        <p class="mb-5">Una plataforma pensada para potenciar tu aprendizaje y
+          facilitar la enseñanza.</p>
+
+        <div class="row g-4 mt-5">
+          <div class="col-12 col-md-4">
+            <div
+              class="card caja-green text-white h-100 p-4 d-flex flex-column"
+              data-aos="zoom-in-right"
+              data-aos-duration="1100"
+            >
+              <div class="mb-3 display-4">📚</div>
+              <h5 class="fw-semibold">Cursos organizados</h5>
+              <p class="flex-grow-1">Explora contenidos estructurados por áreas
+                como matemáticas, computación, lenguaje y más.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div
+              class="card caja-green text-white h-100 p-4 d-flex flex-column"
+              data-aos="zoom-in-down"
+              data-aos-duration="1100"
+            >
+              <div class="mb-3 display-4">👨‍🏫</div>
+              <h5 class="fw-semibold">Profesores comprometidos</h5>
+              <p class="flex-grow-1">Accede a contenido impartido por
+                instructores calificados y dispuestos a ayudarte.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div
+              class="card caja-green text-white h-100 p-4 d-flex flex-column"
+              data-aos="zoom-in-left"
+              data-aos-duration="1100"
+            >
+              <div class="mb-3 display-4">🧾</div>
+              <h5 class="fw-semibold">Certificación</h5>
+              <p class="flex-grow-1">Recibe un certificado al finalizar los
+                cursos para validar tu aprendizaje.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
